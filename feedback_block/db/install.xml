@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="blocks/feedback_block/db" VERSION="2022033000" COMMENT="Install file for feedback_block">
+    <TABLES>
+        <TABLE NAME="block_feedback" COMMENT="Defines comments for students in courses">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true"/>
+                <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0"/>
+                <FIELD NAME="commentbyid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0"/>
+                <FIELD NAME="commentbyfullname" TYPE="text" NOTNULL="true"/>
+                <FIELD NAME="comment" TYPE="text" NOTNULL="true"/>
+                <FIELD NAME="timestamp" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+    </TABLES>
+    <ROLES>
+        <ROLE NAME="manager">
+            <CAPABILITY NAME="block/feedback_block:addfeedback" PERMISSION="allow"/>
+        </ROLE>
+        <ROLE NAME="editingteacher">
+            <CAPABILITY NAME="block/feedback_block:addfeedback" PERMISSION="allow"/>
+        </ROLE>
+    </ROLES>
+</XMLDB>
